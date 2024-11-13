@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import {
@@ -104,7 +103,7 @@ const BasketPage = () => {
                   </p>
                 </div>
               </div>
-              <div>{item.product.name}</div>
+
               <div className="flex items-center ml-4 flex-shrink-0">
                 <AddToBasketButton product={item.product} />
               </div>
@@ -127,23 +126,23 @@ const BasketPage = () => {
               </span>
             </p>
           </div>
-        </div>
 
-        {isSignedIn ? (
-          <button
-            // onClick={handleCheckout}
-            disabled={isLoading}
-            className="mt-4 w-full bg-blue-500 text-white px-4 py-2rounded hover:bg-blue-600 disabled:bg-gray-400"
-          >
-            {isLoading ? 'Processing...' : 'Checkout'}
-          </button>
-        ) : (
-          <SignInButton mode="modal">
-            <button className="mt-4 w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-              Sign in to Checkout
+          {isSignedIn ? (
+            <button
+              onClick={handleCheckout}
+              disabled={isLoading}
+              className="mt-4 w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
+            >
+              {isLoading ? 'Processing...' : 'Checkout'}
             </button>
-          </SignInButton>
-        )}
+          ) : (
+            <SignInButton mode="modal">
+              <button className="mt-4 w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Sign in to Checkout
+              </button>
+            </SignInButton>
+          )}
+        </div>
 
         <div className="h-64 lg:h-0">
           {/* Space for fixed checkout on mobile */}
