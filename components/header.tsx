@@ -6,6 +6,8 @@ import React from 'react';
 import Form from 'next/form';
 import { PackageIcon, TrolleyIcon } from '@sanity/icons';
 import useBasketStore from '@/store/store';
+import Image from 'next/image';
+import Logo from '@/public/glowCircle.png';
 
 const Header = () => {
   const { user } = useUser();
@@ -30,9 +32,9 @@ const Header = () => {
       <div className="flex w-full flex-wrap justify-between items-center">
         <Link
           href="/"
-          className="text-2xl font-bold text-blue-500 hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
+          className="text-2xl font-bold hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
         >
-          Shapr
+          <Image src={Logo} alt="tgs-logo" className="w-12 h-12" />
         </Link>
 
         {/* Next 15 gives you auto query = http://localhost:3000/search?query=page as part of the Form component */}
@@ -51,7 +53,7 @@ const Header = () => {
         </Form>
         <div className="flex items-center space-x-4 mt-4 sm:mt-0 flex-1 md:flex-none">
           <Link
-            className="flex flex-1 relative justify-center sm:justify-start sm:flex-none items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="flex flex-1 relative justify-center sm:justify-start sm:flex-none items-center space-x-2 bg-black hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded"
             href={'/basket'}
           >
             <TrolleyIcon className="w-6 h-6" />
@@ -66,7 +68,7 @@ const Header = () => {
             {user && (
               <Link
                 href={'/orders'}
-                className="flex-1 relative flex justify-center sm:justify-start sm:flex-none items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="flex-1 relative flex justify-center sm:justify-start sm:flex-none items-center space-x-2 bg-black hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded"
               >
                 <PackageIcon className="w-6 h-6" />
                 <span>My Orders</span>

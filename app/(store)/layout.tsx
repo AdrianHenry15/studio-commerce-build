@@ -8,7 +8,7 @@ import DisableDraftMode from '@/components/disable-draft-mode';
 import { VisualEditing } from 'next-sanity';
 
 export const metadata: Metadata = {
-  title: 'Studio Commerce Build Demo',
+  title: 'Studio Commerce Demo Build',
   description: 'Build by Sonny Sangha',
 };
 
@@ -20,6 +20,7 @@ export default async function RootLayout({
   return (
     <ClerkProvider dynamic>
       <html lang="en">
+        <link rel="icon" href="/glowCircle.png" sizes="96x96" />
         <body className={`antialiased`}>
           {(await draftMode()).isEnabled && (
             <>
