@@ -5,9 +5,18 @@ import { PortableText } from 'next-sanity';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-static';
+// Todo: make an hour for revalidation
+export const revalidate = 60; // revalidate at most every 60 seconds
+
 async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
+
+  console.log(
+    crypto.randomUUID().slice(0, 5) +
+      `>>> Rerendered the product page cache for ${slug}`
+  );
 
   if (!product) {
     return notFound();
